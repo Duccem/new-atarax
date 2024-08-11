@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxo4n71nwtwdd"
-path="res://.godot/imported/decor_8x8.png-ddd0b55dde631db76ec13d5f1dddac06.ctex"
+uid="uid://dffic136jcsgn"
+path="res://.godot/imported/rock_in_water.png-857bea3b17aad9cb36dc53c6598fa1bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/decor_8x8.png"
-dest_files=["res://.godot/imported/decor_8x8.png-ddd0b55dde631db76ec13d5f1dddac06.ctex"]
+source_file="res://assets/objects/rock_in_water.png"
+dest_files=["res://.godot/imported/rock_in_water.png-857bea3b17aad9cb36dc53c6598fa1bf.ctex"]
 
 [params]
 

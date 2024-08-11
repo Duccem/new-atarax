@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxkudoi4thvqy"]
+
+[ext_resource type="Texture2D" uid="uid://dpppgfduflq7v" path="res://assets/objects/objects.png" id="1_tk111"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tk111")
+hframes = 16
+vframes = 16
+frame = 7

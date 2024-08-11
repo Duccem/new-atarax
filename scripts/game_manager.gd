@@ -1,4 +1,10 @@
 extends Node
+var player_health = 100
 
-var player_current_attack = false
+signal player_health_changed
+
+func reset_game():
+  await  get_tree().create_timer(3).timeout
+  player_health = 100
+  get_tree().reload_current_scene()
 
