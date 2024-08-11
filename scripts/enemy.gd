@@ -81,8 +81,6 @@ func update_health_bar():
 
 func _on_hitbox_body_entered(body:Node2D):
 	if body.name == "player":
-		print("hit")
-		print(velocity)
 		body.take_damage(10, global_position)
 
 

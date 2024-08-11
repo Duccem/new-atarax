@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://p1mt8pr51ylo"]
+[gd_scene load_steps=52 format=3 uid="uid://p1mt8pr51ylo"]
 
 [ext_resource type="Texture2D" uid="uid://l4ji32fdxydu" path="res://assets/characters/player.png" id="1_ch58w"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u183b"]
@@ -646,16 +646,63 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_numbn"]
 radius = 7.0
 
+[sub_resource type="Animation" id="Animation_flgcr"]
+resource_name = "blink"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.462745), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wogog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w73n8"]
+_data = {
+"RESET": SubResource("Animation_wogog"),
+"blink": SubResource("Animation_flgcr")
+}
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_u183b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 2
 position = Vector2(0, -9)
 texture = ExtResource("1_ch58w")
 hframes = 6
 vframes = 10
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = -18.0
+offset_top = -12.0
+offset_right = 22.0
+offset_bottom = 28.0
+color = Color(1, 0, 0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -694,6 +741,11 @@ collision_mask = 2
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_numbn")
 debug_color = Color(0.846756, 0.270219, 0.663805, 0.42)
+
+[node name="anim_blink" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w73n8")
+}
 
 [connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
 [connection signal="timeout" from="health_reg_timer" to="." method="_on_health_reg_timer_timeout"]

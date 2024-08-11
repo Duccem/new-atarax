@@ -9,9 +9,11 @@ var input_movement = Vector2.ZERO
 
 var player_attacking = false
 var player_alive = true
+var player_knockbacked = false
 
 func _ready():
 	$Sword/CollisionShape2D.disabled = true
+	$anim_blink.play("RESET")
 
 func _physics_process(_delta):
 	if player_alive:
@@ -48,6 +50,8 @@ func state_reset():
 	player_attacking = false
 
 func take_damage(damage: int, enemy_velocity: Vector2):
+	if player_knockbacked:
+		return
 	GameManager.player_health = GameManager.player_health - damage
 	GameManager.player_health_changed.emit()
 	if GameManager.player_health <= 0:
@@ -57,11 +61,14 @@ func take_damage(damage: int, enemy_velocity: Vector2):
 		knockback(enemy_velocity)
 
 func knockback(enemy_velocity: Vector2):
-	print("knockback")
-	print(enemy_velocity)
 	var knockback_direction = (global_position - enemy_velocity).normalized() * 1000
 	velocity = knockback_direction
+	$anim_blink.play("blink")
+	player_knockbacked = true
 	move_and_slide()
+	await get_tree().create_timer(0.5).timeout
+	player_knockbacked = false
+	$anim_blink.play("RESET")
 
 func _on_sword_body_entered(body):
 	if body.name == "enemy":
