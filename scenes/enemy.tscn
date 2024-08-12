@@ -227,7 +227,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt_front",
-"speed": 12.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -395,13 +395,10 @@ script = ExtResource("1_rb2e6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nfghs")
-animation = &"hurt_front"
+animation = &"hurt_back"
 autoplay = "idle_front"
-frame = 2
-frame_progress = 1.0
 
 [node name="detection_area" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
