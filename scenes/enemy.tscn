@@ -364,14 +364,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxqwk"]
+radius = 5.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_wqhl2"]
 radius = 53.0094
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vcxc0"]
 radius = 7.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rxqwk"]
-radius = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rank0"]
 bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
@@ -391,12 +391,18 @@ anti_aliasing = false
 
 [node name="enemy" type="CharacterBody2D"]
 position = Vector2(-1, 0)
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_rb2e6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nfghs")
 animation = &"hurt_back"
 autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_rxqwk")
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -415,9 +421,14 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_vcxc0")
 debug_color = Color(0.862073, 0.215606, 0.715486, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_rxqwk")
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+debug_enabled = true
+
+[node name="path_calculate_time" type="Timer" parent="Navigation"]
+wait_time = 0.2
+autostart = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 texture_filter = 1
@@ -430,11 +441,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ew4yl")
 value = 50.0
 show_percentage = false
 
-[node name="knockback_timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="knockback_timer" to="." method="_on_knockback_time_timeout"]
+[connection signal="timeout" from="Navigation/path_calculate_time" to="." method="_on_path_calculate_time_timeout"]

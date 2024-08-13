@@ -9,23 +9,30 @@ var knockbacked = false
 
 
 @onready var drop = preload("res://scenes/drop.tscn")
+@onready var nav_agent = $Navigation/NavigationAgent2D
 
 func _ready():
 	$HealthBar.value = health
 	$HealthBar.max_value = health
 	$HealthBar.visible = false
+	nav_agent.target_position = self.global_position
+	nav_agent.path_desired_distance = 4
+	nav_agent.target_desired_distance = 4
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if health <= 0 or knockbacked:
 		return;
 	if player_chase:
-		position += (player.position - position).normalized() * SPEED * delta
+		var dir = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = dir * SPEED 
 		$AnimatedSprite2D.flip_h = player.position.x < position.x
 		var animation_name = "move_" + set_animation_direction()
 		$AnimatedSprite2D.play(animation_name)
-		move_and_collide(Vector2(0,0))
+		move_and_slide()
 	else: 
 		$AnimatedSprite2D.play("idle_front")
+
+
 func _on_detection_area_body_entered(body:Node2D):
 	player = body
 	player_chase = true
@@ -49,7 +56,7 @@ func take_damage(damage: int):
 		knockback(player.global_position)
 
 func set_animation_direction():
-	if player.position.y  < position.y:
+	if player.position.y + 5 < position.y:
 		return "back"
 	elif player.position.y > position.y:
 		return "front"
@@ -63,8 +70,9 @@ func knockback(player_position: Vector2):
 	var animation_name = "hurt_" + set_animation_direction()
 	$AnimatedSprite2D.play(animation_name)
 	knockbacked = true
-	$knockback_timer.start()
 	move_and_slide()
+	await get_tree().create_timer(0.5).timeout
+	knockbacked = false
 
 func drop_loot():
 	var loot = drop.instantiate()
@@ -83,6 +91,8 @@ func _on_hitbox_body_entered(body:Node2D):
 	if body.name == "player":
 		body.take_damage(10, global_position)
 
-
-func _on_knockback_time_timeout():
-	knockbacked = false
+func _on_path_calculate_time_timeout():
+	if player:
+		nav_agent.target_position = player.position
+	else:
+		nav_agent.target_position = global_position

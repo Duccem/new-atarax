@@ -1,20 +1,16 @@
-[gd_scene load_steps=29 format=3 uid="uid://cw1ov56vcxunu"]
+[gd_scene load_steps=25 format=3 uid="uid://dcpbfqxh7w0uu"]
 
-[ext_resource type="Texture2D" uid="uid://cw1sun2j5p3e3" path="res://assets/tilesets/plains.png" id="1_i3w12"]
-[ext_resource type="Texture2D" uid="uid://daw8kusy7saqc" path="res://assets/tilesets/grass.png" id="2_5w70e"]
-[ext_resource type="Texture2D" uid="uid://dpppgfduflq7v" path="res://assets/objects/objects.png" id="3_7ccyv"]
-[ext_resource type="Texture2D" uid="uid://boe32oooxb465" path="res://assets/tilesets/fences.png" id="5_nbtan"]
-[ext_resource type="Texture2D" uid="uid://cyipikt61l6jj" path="res://assets/tilesets/decor_16x16.png" id="6_wd8de"]
-[ext_resource type="PackedScene" uid="uid://dn453naarpioy" path="res://scenes/enemy.tscn" id="7_ae0l0"]
-[ext_resource type="Texture2D" uid="uid://dhohthyxdc12s" path="res://assets/tilesets/walls/walls.png" id="7_lyjha"]
-[ext_resource type="PackedScene" uid="uid://ucxnpmp3a4od" path="res://scenes/camera.tscn" id="8_hdope"]
-[ext_resource type="Texture2D" uid="uid://b3e0jsl15rcgi" path="res://assets/tilesets/water_decorations.png" id="8_wn4ef"]
-[ext_resource type="Texture2D" uid="uid://dffic136jcsgn" path="res://assets/objects/rock_in_water.png" id="9_15cnt"]
-[ext_resource type="Texture2D" uid="uid://ctutgvuwgax7s" path="res://assets/tilesets/water-sheet.png" id="10_oyxp2"]
-[ext_resource type="Script" path="res://scripts/map.gd" id="11_rf0do"]
-[ext_resource type="Texture2D" uid="uid://c7qx15kflvypt" path="res://assets/objects/chest_02.png" id="12_jn0f4"]
-[ext_resource type="PackedScene" uid="uid://cqajcooci127m" path="res://scenes/characters/soldier.tscn" id="14_bshu2"]
-[ext_resource type="PackedScene" uid="uid://1yxdtuwulnwi" path="res://scenes/gui.tscn" id="14_v87bb"]
+[ext_resource type="Texture2D" uid="uid://daw8kusy7saqc" path="res://assets/tilesets/grass.png" id="1_jry6t"]
+[ext_resource type="Texture2D" uid="uid://cw1sun2j5p3e3" path="res://assets/tilesets/plains.png" id="2_4sg7x"]
+[ext_resource type="Texture2D" uid="uid://ctutgvuwgax7s" path="res://assets/tilesets/water-sheet.png" id="3_wcdwj"]
+[ext_resource type="Texture2D" uid="uid://dhohthyxdc12s" path="res://assets/tilesets/walls/walls.png" id="4_q6weo"]
+[ext_resource type="Texture2D" uid="uid://cyipikt61l6jj" path="res://assets/tilesets/decor_16x16.png" id="5_4hht5"]
+[ext_resource type="Texture2D" uid="uid://boe32oooxb465" path="res://assets/tilesets/fences.png" id="6_d4j8l"]
+[ext_resource type="Texture2D" uid="uid://b3e0jsl15rcgi" path="res://assets/tilesets/water_decorations.png" id="7_kfolm"]
+[ext_resource type="Texture2D" uid="uid://dffic136jcsgn" path="res://assets/objects/rock_in_water.png" id="8_qysk8"]
+[ext_resource type="Texture2D" uid="uid://dpppgfduflq7v" path="res://assets/objects/objects.png" id="9_ivglh"]
+[ext_resource type="Texture2D" uid="uid://c7qx15kflvypt" path="res://assets/objects/chest_02.png" id="10_m6avq"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="11_ckenf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0o7vh"]
 vertices = PackedVector2Array(274, 68, 253, 69, 100, 67, 100, 58, 510, 286, 1150, -1, 1149, 462, 509, 289, 510, 278, 508, 278, 507, 273, 510, 273, 510, 262, 508, 262, 507, 257, 510, 257, 510, 246, 508, 246, 507, 241, 510, 241, 510, 230, 508, 230, 507, 225, 510, 225, 510, 214, 508, 214, 507, 209, 510, 209, 510, 197, 222, 198, 220, 198, 219, 193, 222, 193, 274, 197, 220, 182, 219, 177, 222, 177, 222, 182, 222, 166, 220, 166, 219, 161, 222, 161, 322, 165, 220, 150, 219, 145, 222, 145, 222, 150, 204, 118, 203, 113, 206, 113, 206, 118, 46, 118, 44, 118, 43, 113, 46, 113, 131, 117, 140, 134, 139, 129, 142, 129, 142, 134, 140, 118, 139, 113, 142, 113, 142, 118, 142, 102, 140, 102, 139, 97, 182, 97, 179, 101, 284, 230, 283, 225, 286, 225, 286, 230, 284, 214, 283, 209, 333, 209, 286, 214, 332, 198, 331, 193, 334, 193, 334, 198, 334, 182, 332, 182, 331, 177, 470, 177, 467, 181, 204, 326, 203, 321, 237, 321, 206, 326, 236, 310, 235, 305, 238, 305, 238, 310, 236, 294, 235, 289, 238, 294, 252, 75, 276, 83, 276, 74, 478, 165, 251, 83, 190, 85, 130, 85, 491, 197, 491, 193, 494, 193, 494, 181, 475, 181, 475, 177, 478, 177, 326, 177, 326, 181, 323, 181, 323, 173, 323, 193, 326, 193, 326, 197, 278, 209, 278, 213, 275, 213, 275, 205, 275, 225, 278, 225, 278, 229, 235, 229, 235, 225, 238, 225, 238, 213, 219, 213, 219, 209, 222, 209, 222, 133, 203, 133, 203, 129, 206, 129, 206, 101, 187, 101, 187, 97, 190, 97, 134, 97, 134, 101, 131, 101, 131, 93, 131, 113, 134, 113, 134, 117, 131, 129, 134, 129, 134, 133, 43, 133, 43, 129, 46, 129, 46, 101, 7, 113, 38, 113, 38, 117, 35, 117, 35, 129, 38, 129, 38, 133, 35, 133, 182, 101, 179, 109, 180, 113, 198, 113, 198, 117, 195, 117, 195, 129, 198, 129, 198, 133, 195, 133, 196, 145, 214, 145, 214, 149, 211, 149, 211, 161, 214, 161, 214, 165, 211, 165, 211, 177, 214, 177, 214, 181, 211, 181, 211, 193, 214, 193, 214, 197, 211, 197, 211, 209, 214, 209, 214, 213, 211, 213, 212, 225, 230, 225, 230, 229, 227, 229, 470, 181, 467, 189, 468, 193, 486, 193, 486, 197, 483, 197, 484, 209, 502, 209, 502, 213, 499, 213, 499, 225, 502, 225, 502, 229, 499, 229, 499, 241, 502, 241, 502, 245, 499, 245, 499, 257, 502, 257, 502, 261, 499, 261, 499, 273, 502, 273, 502, 277, 226, 277, 230, 289, 230, 293, 227, 293, 227, 285, 227, 305, 230, 305, 230, 309, 194, 309, 195, 317, 198, 321, 198, 325, 195, 325, 36, 145, 0, 463, 206, 335, 334, 206, 238, 318, 483, 205, 285, 241, 0, 1, 98, 52, 141, 145, 142, 142, 227, 237, 75, 67, 195, 141, 77, 53, 286, 238, 195, 335, 76, 59, 2, 101, 3, 109, 35, 141, 211, 221, 228, 241)
@@ -25,13 +21,13 @@ source_geometry_group_name = &"navigation"
 agent_radius = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qghm5"]
-texture = ExtResource("2_5w70e")
+texture = ExtResource("1_jry6t")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alx24"]
-texture = ExtResource("1_i3w12")
+texture = ExtResource("2_4sg7x")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -232,7 +228,7 @@ texture = ExtResource("1_i3w12")
 3:11/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kytq8"]
-texture = ExtResource("10_oyxp2")
+texture = ExtResource("3_wcdwj")
 0:0/animation_separation = Vector2i(4, 0)
 0:0/animation_frame_0/duration = 0.2
 0:0/animation_frame_1/duration = 0.2
@@ -358,7 +354,7 @@ texture = ExtResource("10_oyxp2")
 4:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qi7t"]
-texture = ExtResource("7_lyjha")
+texture = ExtResource("4_q6weo")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -454,7 +450,7 @@ texture = ExtResource("7_lyjha")
 5:5/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnm6v"]
-texture = ExtResource("6_wd8de")
+texture = ExtResource("5_4hht5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -517,7 +513,7 @@ texture = ExtResource("6_wd8de")
 3:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnno5"]
-texture = ExtResource("5_nbtan")
+texture = ExtResource("6_d4j8l")
 0:0/0 = 0
 0:0/0/y_sort_origin = 2
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -600,7 +596,7 @@ texture = ExtResource("5_nbtan")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.125, 8, -1, 8, -8, 8, -8, -1.75, 5.375, -1.625, 5.125, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r33jt"]
-texture = ExtResource("8_wn4ef")
+texture = ExtResource("7_kfolm")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -639,7 +635,7 @@ texture = ExtResource("8_wn4ef")
 5:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_51ltw"]
-texture = ExtResource("9_15cnt")
+texture = ExtResource("8_qysk8")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -660,7 +656,7 @@ texture = ExtResource("9_15cnt")
 5:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58ijd"]
-texture = ExtResource("10_oyxp2")
+texture = ExtResource("3_wcdwj")
 0:0/next_alternative_id = 3
 0:0/animation_columns = 1
 0:0/0 = 0
@@ -706,7 +702,7 @@ texture = ExtResource("10_oyxp2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1luw"]
 resource_name = "Forrest"
-texture = ExtResource("3_7ccyv")
+texture = ExtResource("9_ivglh")
 0:0/0 = 0
 0:0/0/y_sort_origin = 4
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -878,7 +874,7 @@ texture = ExtResource("3_7ccyv")
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8.73071, 13.0961, 10.5165, 18.0567, 11.3102, 26.1921, -11.5087, 25.9937, -11.3102, 19.2472, -10.1197, 13.6913)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j074c"]
-texture = ExtResource("12_jn0f4")
+texture = ExtResource("10_m6avq")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -907,30 +903,14 @@ sources/8 = SubResource("TileSetAtlasSource_j074c")
 sources/11 = SubResource("TileSetAtlasSource_kytq8")
 sources/12 = SubResource("TileSetAtlasSource_1qi7t")
 
-[node name="world" type="Node2D"]
-y_sort_enabled = true
+[node name="Level1" type="Node2D"]
 
-[node name="enemy" parent="." instance=ExtResource("7_ae0l0")]
-position = Vector2(224, 70)
-
-[node name="Camera2D" parent="." node_paths=PackedStringArray("player", "map") instance=ExtResource("8_hdope")]
-player = NodePath("../player")
-map = NodePath("../Level1/TileMap")
-
-[node name="GUI" parent="." instance=ExtResource("14_v87bb")]
-visible = false
-
-[node name="player" parent="." instance=ExtResource("14_bshu2")]
-position = Vector2(38, 79)
-
-[node name="Level1" type="Node2D" parent="."]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Level1"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_0o7vh")
 avoidance_layers = 0
 
-[node name="TileMap" type="TileMap" parent="Level1" groups=["navigation"]]
+[node name="TileMap" type="TileMap" parent="." groups=["navigation"]]
 z_index = -1
 y_sort_enabled = true
 tile_set = SubResource("TileSet_rrh5a")
@@ -953,4 +933,4 @@ layer_4/name = "Fence"
 layer_4/y_sort_enabled = true
 layer_4/z_index = 1
 layer_4/tile_data = PackedInt32Array(1114132, 131075, 3, 393216, 65539, 3, 393217, 131075, 3, 393218, 196611, 0, 458754, 3, 1, 524290, 65539, 2, 524291, 131075, 3, 524292, 131075, 3, 524293, 131075, 3, 524294, 131075, 3, 524295, 131075, 3, 524296, 196611, 2, 458760, 3, 1, 393224, 3, 1, 327688, 65539, 0, 327689, 131075, 3, 327690, 131075, 3, 327691, 196611, 0, 393227, 65539, 2, 393228, 196611, 0, 458764, 3, 1, 524300, 65539, 2, 524301, 196611, 0, 589837, 3, 1, 655373, 3, 1, 720909, 3, 1, 786445, 3, 1, 851981, 65539, 2, 851982, 196611, 0, 917518, 65539, 2, 917519, 131075, 3, 917520, 131075, 3, 917521, 196611, 2, 786449, 65539, 0, 851985, 3, 1, 786450, 131075, 3, 786451, 131075, 3, 786452, 196611, 2, 720916, 3, 1, 655380, 65539, 0, 655381, 131075, 3, 655382, 131075, 3, 655383, 131075, 3, 655384, 131075, 3, 655385, 131075, 3, 655386, 131075, 3, 655387, 131075, 3, 655388, 131075, 3, 655389, 196611, 0, 720925, 65539, 2, 720926, 196611, 0, 786462, 65539, 2, 786463, 196611, 0, 851999, 3, 1, 917535, 3, 1, 983071, 3, 1, 1048607, 3, 1, 1114143, 196611, 2, 1114142, 131075, 3, 1114141, 131075, 3, 1114140, 131075, 3, 1114139, 131075, 3, 1114138, 131075, 3, 1114137, 131075, 3, 1114136, 131075, 3, 1114135, 131075, 3, 1114134, 131075, 3, 1114133, 131075, 3, 1114131, 131075, 3, 1114130, 131075, 3, 1114129, 131075, 3, 1114128, 131075, 3, 1114127, 131075, 3, 1114126, 65539, 0, 1179662, 3, 1, 1245198, 196611, 2, 1245196, 65539, 0, 1245197, 131075, 3, 1310732, 3, 2)
-script = ExtResource("11_rf0do")
+script = ExtResource("11_ckenf")

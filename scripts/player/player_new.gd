@@ -68,6 +68,7 @@ func knockback(enemy_velocity: Vector2):
 	move_and_slide()
 	await get_tree().create_timer(0.5).timeout
 	player_knockbacked = false
+	state_reset()
 
 func _on_sword_body_entered(body):
 	if body.name == "enemy":
