@@ -31,8 +31,8 @@ func reset_state() -> void:
 
 func _on_basic_attack_body_entered(body):
 	if body.name == "enemy":
-		body.take_damage(10)
+		body.take_damage(10, global_position)
 
 func _on_medium_attack_body_entered(body):
 	if body.name == "enemy":
-		body.take_damage(20)
+		body.take_damage(20, global_position)

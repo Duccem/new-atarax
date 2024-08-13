@@ -70,10 +70,6 @@ func knockback(enemy_velocity: Vector2):
 	player_knockbacked = false
 	state_reset()
 
-func _on_sword_body_entered(body):
-	if body.name == "enemy":
-		body.take_damage(10)
-
 
 func _on_health_reg_timer_timeout():
 	if GameManager.player_health < 100:

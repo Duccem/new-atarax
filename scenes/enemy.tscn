@@ -424,7 +424,6 @@ debug_color = Color(0.862073, 0.215606, 0.715486, 0.42)
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
-debug_enabled = true
 
 [node name="path_calculate_time" type="Timer" parent="Navigation"]
 wait_time = 0.2

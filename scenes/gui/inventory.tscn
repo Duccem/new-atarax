@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://ma15i6f6e60c"]
+
+[ext_resource type="Texture2D" uid="uid://bgf0duy43irs3" path="res://assets/gui/InventoryRect.png" id="1_ot0y7"]
+[ext_resource type="Script" path="res://scripts/gui/inventory.gd" id="1_tqo8h"]
+[ext_resource type="PackedScene" uid="uid://dm8k5h2v7w0dm" path="res://scenes/gui/inventory_slot.tscn" id="2_i01vy"]
+
+[node name="Inventory" type="Control"]
+custom_minimum_size = Vector2(450, 280)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -702.0
+offset_bottom = -368.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tqo8h")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 449.0
+offset_bottom = 278.0
+texture = ExtResource("1_ot0y7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -34.0
+offset_right = 58.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Control" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control10" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control11" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control12" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control13" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control14" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2
+
+[node name="Control15" parent="NinePatchRect/GridContainer" instance=ExtResource("2_i01vy")]
+layout_mode = 2

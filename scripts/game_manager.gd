@@ -8,3 +8,8 @@ func reset_game():
   player_health = 100
   get_tree().reload_current_scene()
 
+func pause_game():
+  get_tree().paused = true
+
+func resume_game():
+  get_tree().paused = false

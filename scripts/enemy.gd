@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * SPEED 
 		$AnimatedSprite2D.flip_h = player.position.x < position.x
-		var animation_name = "move_" + set_animation_direction()
+		var animation_name = "move_" + set_animation_direction(player.position)
 		$AnimatedSprite2D.play(animation_name)
 		move_and_slide()
 	else: 
@@ -43,7 +43,7 @@ func _on_detection_area_body_exited(_body:Node2D):
 	player_chase = false
 
 
-func take_damage(damage: int):
+func take_damage(damage: int, object_velocity: Vector2):
 	health -= damage
 	update_health_bar()
 	if health <= 0:
@@ -53,12 +53,12 @@ func take_damage(damage: int):
 		drop_loot()
 		queue_free()
 	else :
-		knockback(player.global_position)
+		knockback(object_velocity)
 
-func set_animation_direction():
-	if player.position.y + 5 < position.y:
+func set_animation_direction(player_position: Vector2):
+	if player_position.y + 5 < position.y:
 		return "back"
-	elif player.position.y > position.y:
+	elif player_position.y > position.y:
 		return "front"
 	else:
 		return "side"
@@ -66,8 +66,8 @@ func set_animation_direction():
 func knockback(player_position: Vector2):
 	var knockback_direction = (global_position - player_position).normalized() * 1000
 	velocity = knockback_direction
-	$AnimatedSprite2D.flip_h = player.position.x < position.x
-	var animation_name = "hurt_" + set_animation_direction()
+	$AnimatedSprite2D.flip_h = player_position.x < position.x
+	var animation_name = "hurt_" + set_animation_direction(player_position)
 	$AnimatedSprite2D.play(animation_name)
 	knockbacked = true
 	move_and_slide()
