@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bop1jqt0itd24"]
+
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_2lmc8"]
+[ext_resource type="Texture2D" uid="uid://dpppgfduflq7v" path="res://assets/objects/objects.png" id="1_o4e6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f58hq"]
+size = Vector2(21, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hin0r"]
+radius = 15.0
+
+[node name="Node2D" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_2lmc8")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_f58hq")
+
+[node name="sprites" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprites"]
+y_sort_enabled = true
+position = Vector2(5, -8)
+texture = ExtResource("1_o4e6y")
+hframes = 16
+vframes = 12
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="sprites"]
+y_sort_enabled = true
+position = Vector2(-4, -3)
+texture = ExtResource("1_o4e6y")
+hframes = 16
+vframes = 13
+frame = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="sprites"]
+y_sort_enabled = true
+position = Vector2(0, -3)
+texture = ExtResource("1_o4e6y")
+hframes = 16
+vframes = 13
+
+[node name="area_of_interact" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_of_interact"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_hin0r")
+debug_color = Color(0.864548, 0.000264912, 0.781035, 0.42)

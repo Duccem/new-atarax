@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://p1mt8pr51ylo"]
+[gd_scene load_steps=53 format=3 uid="uid://p1mt8pr51ylo"]
 
 [ext_resource type="Texture2D" uid="uid://l4ji32fdxydu" path="res://assets/characters/player.png" id="1_ch58w"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u183b"]
@@ -70,6 +70,9 @@ animation = &"idle_down"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_subaf"]
 animation = &"idle_top"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gphiw"]
+animation = &"idle_down"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kalqy"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_m05f5")
 blend_point_0/pos = Vector2(-1, 0)
@@ -79,6 +82,8 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_1mkcf")
 blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_subaf")
 blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_gphiw")
+blend_point_4/pos = Vector2(-1, -1)
 snap = Vector2(0.01, 0.1)
 blend_mode = 1
 
@@ -734,7 +739,7 @@ tree_root = SubResource("AnimationNodeStateMachine_jr54f")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Dead/blend_position = Vector2(0, 0)
-parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(-1, -0.990741)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -10,6 +10,8 @@ var player_alive = true
 var player_attacking = false
 var player_knockbacked = false
 
+@export var inventory: Inventory
+
 func state_reset():
 	player_attacking = false
 	$Attacks.reset_state()
