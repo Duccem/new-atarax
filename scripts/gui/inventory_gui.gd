@@ -68,8 +68,8 @@ func take_item_from_slot(slot):
 func insert_item_in_slot(slot):
 	var item = itemInHand
 	remove_child(itemInHand)
-	itemInHand = null
 	slot.insert(item)
+	itemInHand = null
 	old_item_index = -1
 
 func swap_items(slot):
