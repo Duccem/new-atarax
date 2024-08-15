@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dchrghc1r0hii"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_lhc4b"]
+[ext_resource type="Texture2D" uid="uid://b2amm64y7fnxl" path="res://assets/objects/GoldCoin.png" id="2_4qd6s"]
+
+[resource]
+script = ExtResource("1_lhc4b")
+name = "Coin"
+texture = ExtResource("2_4qd6s")
+max_quantity = 16
+stackable = true

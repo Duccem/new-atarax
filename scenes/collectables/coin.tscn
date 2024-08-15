@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmdnj15uthv6l"]
+
+[ext_resource type="PackedScene" uid="uid://u86rvg58u6xf" path="res://scenes/collectable.tscn" id="1_8eagt"]
+[ext_resource type="Resource" uid="uid://dchrghc1r0hii" path="res://inventory/items/coin.tres" id="2_nnvl6"]
+[ext_resource type="Texture2D" uid="uid://b2amm64y7fnxl" path="res://assets/objects/GoldCoin.png" id="2_qs88s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jj5gk"]
+resource_local_to_scene = true
+radius = 4.0
+
+[node name="Collectable" instance=ExtResource("1_8eagt")]
+item_resource = ExtResource("2_nnvl6")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_jj5gk")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_qs88s")

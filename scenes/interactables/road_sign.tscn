@@ -9,7 +9,7 @@ size = Vector2(21, 8)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hin0r"]
 radius = 15.0
 
-[node name="Node2D" type="StaticBody2D"]
+[node name="Node2D" type="StaticBody2D" groups=["navigation"]]
 y_sort_enabled = true
 script = ExtResource("1_2lmc8")
 

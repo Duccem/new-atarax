@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm8k5h2v7w0dm"]
+[gd_scene load_steps=3 format=3 uid="uid://dm8k5h2v7w0dm"]
 
-[ext_resource type="Script" path="res://scripts/gui/inventory_slot.gd" id="1_2oxba"]
+[ext_resource type="Script" path="res://scripts/gui/slot_gui.gd" id="1_0ia5s"]
 [ext_resource type="Texture2D" uid="uid://ijw5m8874yhr" path="res://assets/gui/inventorySlot.png" id="1_74k8b"]
-[ext_resource type="FontFile" uid="uid://f5ptgpmrgnep" path="res://assets/fonts/NormalFont.ttf" id="3_18qox"]
 
-[node name="Control" type="Panel"]
+[node name="Control" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(80, 80)
 anchors_preset = 15
@@ -14,7 +13,7 @@ offset_right = -1072.0
 offset_bottom = -568.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2oxba")
+script = ExtResource("1_0ia5s")
 
 [node name="background" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -27,22 +26,3 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 0
 offset_right = 80.0
 offset_bottom = 80.0
-
-[node name="Panel" type="Panel" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
-scale = Vector2(4, 4)
-
-[node name="quantity" type="Label" parent="CenterContainer/Panel"]
-custom_minimum_size = Vector2(38, 39)
-layout_mode = 0
-offset_left = -1.0
-offset_right = 37.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_18qox")
-theme_override_font_sizes/font_size = 28
-text = "99"
-horizontal_alignment = 2

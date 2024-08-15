@@ -1,31 +1,33 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=18 format=3 uid="uid://dwyiiepll76ab"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_a2eru"]
+[ext_resource type="Resource" uid="uid://csh1t8r3d6suc" path="res://inventory/items/life_potion.tres" id="2_qju3o"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_yfm0t"]
 
 [sub_resource type="Resource" id="Resource_u8oio"]
 script = ExtResource("2_yfm0t")
-quantity = 0
+item = ExtResource("2_qju3o")
+quantity = 4
 
 [sub_resource type="Resource" id="Resource_vyjdl"]
 script = ExtResource("2_yfm0t")
-quantity = 0
+item = ExtResource("2_qju3o")
+quantity = 10
 
 [sub_resource type="Resource" id="Resource_xq4w8"]
 script = ExtResource("2_yfm0t")
-quantity = 0
+item = ExtResource("2_qju3o")
+quantity = 6
 
 [sub_resource type="Resource" id="Resource_jun32"]
 script = ExtResource("2_yfm0t")
-quantity = 0
-
-[sub_resource type="Resource" id="Resource_vi8rl"]
-script = ExtResource("2_yfm0t")
-quantity = 0
+item = ExtResource("2_qju3o")
+quantity = 4
 
 [sub_resource type="Resource" id="Resource_4ae7n"]
 script = ExtResource("2_yfm0t")
-quantity = 0
+item = ExtResource("2_qju3o")
+quantity = 5
 
 [sub_resource type="Resource" id="Resource_2xt3o"]
 script = ExtResource("2_yfm0t")
@@ -65,4 +67,4 @@ quantity = 0
 
 [resource]
 script = ExtResource("1_a2eru")
-slots = Array[ExtResource("2_yfm0t")]([SubResource("Resource_u8oio"), SubResource("Resource_vyjdl"), SubResource("Resource_xq4w8"), SubResource("Resource_jun32"), SubResource("Resource_vi8rl"), SubResource("Resource_4ae7n"), SubResource("Resource_2xt3o"), SubResource("Resource_rpi68"), SubResource("Resource_gwdst"), SubResource("Resource_4mfrr"), SubResource("Resource_5d2um"), SubResource("Resource_anbs8"), SubResource("Resource_0bpld"), SubResource("Resource_xbogq"), SubResource("Resource_a577j")])
+slots = Array[ExtResource("2_yfm0t")]([SubResource("Resource_u8oio"), SubResource("Resource_vyjdl"), SubResource("Resource_xq4w8"), SubResource("Resource_jun32"), SubResource("Resource_4ae7n"), SubResource("Resource_2xt3o"), SubResource("Resource_rpi68"), SubResource("Resource_gwdst"), SubResource("Resource_4mfrr"), SubResource("Resource_5d2um"), SubResource("Resource_anbs8"), SubResource("Resource_0bpld"), SubResource("Resource_xbogq"), SubResource("Resource_a577j")])
