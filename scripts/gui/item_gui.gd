@@ -9,12 +9,10 @@ var inventorySlot
 func update(slot: InventorySlot):
 	inventorySlot = slot
 	if !slot || !slot.item: return
-
-	itemSprite.visible = true
 	itemSprite.texture = slot.item.texture
-
+	itemSprite.visible = true
 	if slot.quantity > 1:
-		quantityLabel.visible = true
 		quantityLabel.text = str(slot.quantity)
+		quantityLabel.visible = true
 	else:
 		quantityLabel.visible = false

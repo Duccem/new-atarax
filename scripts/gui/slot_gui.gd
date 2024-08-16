@@ -27,7 +27,6 @@ func take_item():
 func is_empty() -> bool :
 	return !itemStackGui
 
-func _gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			right_pressed.emit()
+func _gui_input(_event: InputEvent):
+	if Input.is_action_just_pressed("half_stack"):
+		right_pressed.emit()

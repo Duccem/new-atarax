@@ -59,6 +59,11 @@ func on_slot_selected(slot):
 			swap_items(slot)
 		return
 
+func on_slot_right_pressed(slot):
+	if locked: return
+	if slot.is_empty(): return
+	take_the_half(slot)
+
 func take_item_from_slot(slot):
 	itemInHand = slot.take_item()
 	add_child(itemInHand)
@@ -100,7 +105,6 @@ func stack_items(slot):
 	slot_item.update(slot_item.inventorySlot)
 	if itemInHand: itemInHand.update(itemInHand.inventorySlot)
 	
-
 func update_item_in_hand():
 	if !itemInHand: return
 	itemInHand.global_position = get_global_mouse_position() - itemInHand.size / 2
@@ -122,10 +126,41 @@ func put_item_back():
 
 func take_the_half(slot):
 	if slot.is_empty(): return
+	if slot.itemStackGui.inventorySlot.quantity == 1:
+		take_item_from_slot(slot)
+		return
+	
+	var slot_item: ItemStackGui = slot.take_item()
+	var half = floor(slot_item.inventorySlot.quantity / 2)
+	
+	var new_slot_item = slot_item
+	new_slot_item.inventorySlot.quantity = new_slot_item.inventorySlot.quantity - half
+	new_slot_item.update(new_slot_item.inventorySlot)
+	slot.insert(slot_item)
 
+	itemInHand = ItemStackGuiClass.instantiate()
+	itemInHand.inventorySlot = InventorySlot.new()
+
+	for i in itemInHand.get_children():
+		itemInHand.remove_child(i)
+		i.queue_free()
+	itemInHand.itemSprite = slot_item.itemSprite.duplicate()
+	itemInHand.quantityLabel = slot_item.quantityLabel.duplicate()
+
+	itemInHand.add_child(itemInHand.itemSprite)
+	itemInHand.add_child(itemInHand.quantityLabel)
+	
+	itemInHand.inventorySlot.item = slot_item.inventorySlot.item
+	itemInHand.inventorySlot.quantity = half
+	itemInHand.update(itemInHand.inventorySlot)
+
+	add_child(itemInHand)
+	
+	update_item_in_hand()
+	
 
 func connect_slots(): 
 	for i in range(slots.size()):
 		slots[i].index = i
-		var callable = Callable(on_slot_selected)
-		slots[i].pressed.connect(callable.bind(slots[i]))
+		slots[i].pressed.connect(Callable(on_slot_selected).bind(slots[i]))
+		slots[i].right_pressed.connect(Callable(on_slot_right_pressed).bind(slots[i]))
