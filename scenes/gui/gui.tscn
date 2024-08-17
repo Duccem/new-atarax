@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://1yxdtuwulnwi"]
+[gd_scene load_steps=4 format=3 uid="uid://1yxdtuwulnwi"]
 
 [ext_resource type="PackedScene" uid="uid://32u56bust6eo" path="res://scenes/gui/health_bar.tscn" id="1_gew2a"]
+[ext_resource type="PackedScene" uid="uid://bqkvockfud15p" path="res://scenes/gui/hotbar.tscn" id="2_s7km5"]
 [ext_resource type="PackedScene" uid="uid://ma15i6f6e60c" path="res://scenes/gui/inventory.tscn" id="2_vko7u"]
 
 [node name="GUI" type="CanvasLayer"]
@@ -12,13 +13,26 @@ offset_right = 88.0
 offset_bottom = 27.0
 scale = Vector2(3, 3)
 
+[node name="Hotbar" parent="." instance=ExtResource("2_s7km5")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -57.0
+offset_right = 190.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="Inventory" parent="." instance=ExtResource("2_vko7u")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -67.0
-offset_top = -42.0
-offset_right = 67.0
-offset_bottom = 42.0
+offset_left = 46.0
+offset_top = -36.0
+offset_right = 571.0
+offset_bottom = 305.0

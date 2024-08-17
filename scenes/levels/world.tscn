@@ -973,8 +973,3 @@ layer_5/y_sort_enabled = true
 layer_5/z_index = 1
 layer_5/tile_data = PackedInt32Array(131081, 9, 65536, 524307, 9, 65536, 393234, 9, 196608, 262163, 9, 196608)
 script = ExtResource("16_fnx7j")
-
-[connection signal="body_entered" from="Level/TileMap/LifePot" to="Level/TileMap/LifePot" method="_on_body_entered"]
-[connection signal="body_entered" from="Level/TileMap/@Area2D@17826" to="Level/TileMap/@Area2D@17826" method="_on_body_entered"]
-[connection signal="body_entered" from="Level/TileMap/Collectable" to="Level/TileMap/Collectable" method="_on_body_entered"]
-[connection signal="body_entered" from="Level/TileMap/@Area2D@17827" to="Level/TileMap/@Area2D@17827" method="_on_body_entered"]

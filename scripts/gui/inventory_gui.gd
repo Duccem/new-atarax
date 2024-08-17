@@ -1,27 +1,30 @@
-extends Control
+class_name InventoryGui extends Control
 
 var is_open = false
 
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
 @onready var ItemStackGuiClass = preload("res://scenes/gui/item_stack_gui.tscn")
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var hotbar_slots: Array = $NinePatchRect/HBoxContainer.get_children()
+@onready var slots: Array = hotbar_slots + $NinePatchRect/GridContainer.get_children()
 
-var itemInHand: ItemStackGui
+var item_in_hand: ItemStackGui
 var old_item_index = -1
 var locked = false
 
 func update():
 	for i in range(min(inventory.slots.size(), slots.size())):
-		var inventorySlot: InventorySlot = inventory.slots[i]
+		var inventory_slot: InventorySlot = inventory.slots[i]
 
-		if !inventorySlot.item: continue
+		if !inventory_slot.item:
+			slots[i].clear()
+			continue
 
-		var itemStackGui = slots[i].itemStackGui
-		if !itemStackGui:
-			itemStackGui = ItemStackGuiClass.instantiate()
-			slots[i].insert(itemStackGui);
+		var item_stack = slots[i].item_stack
+		if !item_stack:
+			item_stack = ItemStackGuiClass.instantiate()
+			slots[i].insert(item_stack);
 		
-		itemStackGui.update(inventorySlot)
+		item_stack.update(inventory_slot)
 
 func _ready():
 	visible = is_open
@@ -30,7 +33,7 @@ func _ready():
 	update()
 
 func _input(_event):
-	if itemInHand && !locked && Input.is_action_just_pressed("throw_item"):
+	if item_in_hand && !locked && Input.is_action_just_pressed("throw_item"):
 		put_item_back()
 	update_item_in_hand()
 
@@ -46,14 +49,14 @@ func toggle_inventory():
 func on_slot_selected(slot):
 	if locked: return
 
-	if slot.is_empty() && itemInHand:
+	if slot.is_empty() && item_in_hand:
 		insert_item_in_slot(slot)
 		return
-	if !slot.is_empty() && !itemInHand:
+	if !slot.is_empty() && !item_in_hand:
 		take_item_from_slot(slot)
 		return
-	if !slot.is_empty() && itemInHand:
-		if slot.itemStackGui.inventorySlot.item.name == itemInHand.inventorySlot.item.name:
+	if !slot.is_empty() && item_in_hand:
+		if slot.item_stack.inventory_slot.item.name == item_in_hand.inventory_slot.item.name:
 			stack_items(slot)
 		else:
 			swap_items(slot)
@@ -65,49 +68,49 @@ func on_slot_right_pressed(slot):
 	take_the_half(slot)
 
 func take_item_from_slot(slot):
-	itemInHand = slot.take_item()
-	add_child(itemInHand)
+	item_in_hand = slot.take_item()
+	add_child(item_in_hand)
 	update_item_in_hand()
 	old_item_index = slot.index
 
 func insert_item_in_slot(slot):
-	var item = itemInHand
-	remove_child(itemInHand)
+	var item = item_in_hand
+	remove_child(item_in_hand)
 	slot.insert(item)
-	itemInHand = null
+	item_in_hand = null
 	old_item_index = -1
 
 func swap_items(slot):
 	var tempItem = slot.take_item()
 	insert_item_in_slot(slot)
-	itemInHand = tempItem
-	add_child(itemInHand)
+	item_in_hand = tempItem
+	add_child(item_in_hand)
 	update_item_in_hand()
 
 func stack_items(slot):
-	var slot_item: ItemStackGui = slot.itemStackGui
-	var max_quantity = slot_item.inventorySlot.item.max_quantity
-	var total_quantity = slot_item.inventorySlot.quantity + itemInHand.inventorySlot.quantity
+	var slot_item: ItemStackGui = slot.item_stack
+	var max_quantity = slot_item.inventory_slot.item.max_quantity
+	var total_quantity = slot_item.inventory_slot.quantity + item_in_hand.inventory_slot.quantity
 
-	if slot_item.inventorySlot.quantity == max_quantity:
+	if slot_item.inventory_slot.quantity == max_quantity:
 		swap_items(slot)
 		return
 	
 	if total_quantity <= max_quantity:
-		slot_item.inventorySlot.quantity = total_quantity
-		remove_child(itemInHand)
-		itemInHand = null
+		slot_item.inventory_slot.quantity = total_quantity
+		remove_child(item_in_hand)
+		item_in_hand = null
 		old_item_index = -1
 	else: 
-		slot_item.inventorySlot.quantity = max_quantity
-		itemInHand.inventorySlot.quantity = total_quantity - max_quantity
+		slot_item.inventory_slot.quantity = max_quantity
+		item_in_hand.inventory_slot.quantity = total_quantity - max_quantity
 	
-	slot_item.update(slot_item.inventorySlot)
-	if itemInHand: itemInHand.update(itemInHand.inventorySlot)
+	slot_item.update(slot_item.inventory_slot)
+	if item_in_hand: item_in_hand.update(item_in_hand.inventory_slot)
 	
 func update_item_in_hand():
-	if !itemInHand: return
-	itemInHand.global_position = get_global_mouse_position() - itemInHand.size / 2
+	if !item_in_hand: return
+	item_in_hand.global_position = get_global_mouse_position() - item_in_hand.size / 2
 
 func put_item_back():
 	locked = true
@@ -119,42 +122,42 @@ func put_item_back():
 	var target_slot = slots[old_item_index]
 	var tween = create_tween()
 	var target_position = target_slot.global_position + target_slot.size / 2
-	tween.tween_property(itemInHand, "global_position", target_position, 0.2)
+	tween.tween_property(item_in_hand, "global_position", target_position, 0.2)
 	await  tween.finished
 	insert_item_in_slot(target_slot)
 	locked = false
 
 func take_the_half(slot):
 	if slot.is_empty(): return
-	if slot.itemStackGui.inventorySlot.quantity == 1:
+	if slot.item_stack.inventory_slot.quantity == 1:
 		take_item_from_slot(slot)
 		return
 	
 	var slot_item: ItemStackGui = slot.take_item()
-	var half = floor(slot_item.inventorySlot.quantity / 2)
+	var half = floor(slot_item.inventory_slot.quantity / 2)
 	
 	var new_slot_item = slot_item
-	new_slot_item.inventorySlot.quantity = new_slot_item.inventorySlot.quantity - half
-	new_slot_item.update(new_slot_item.inventorySlot)
+	new_slot_item.inventory_slot.quantity = new_slot_item.inventory_slot.quantity - half
+	new_slot_item.update(new_slot_item.inventory_slot)
 	slot.insert(slot_item)
 
-	itemInHand = ItemStackGuiClass.instantiate()
-	itemInHand.inventorySlot = InventorySlot.new()
+	item_in_hand = ItemStackGuiClass.instantiate()
+	item_in_hand.inventory_slot = InventorySlot.new()
 
-	for i in itemInHand.get_children():
-		itemInHand.remove_child(i)
+	for i in item_in_hand.get_children():
+		item_in_hand.remove_child(i)
 		i.queue_free()
-	itemInHand.itemSprite = slot_item.itemSprite.duplicate()
-	itemInHand.quantityLabel = slot_item.quantityLabel.duplicate()
+	item_in_hand.item_sprite = slot_item.item_sprite.duplicate()
+	item_in_hand.quantity_label = slot_item.quantity_label.duplicate()
 
-	itemInHand.add_child(itemInHand.itemSprite)
-	itemInHand.add_child(itemInHand.quantityLabel)
+	item_in_hand.add_child(item_in_hand.item_sprite)
+	item_in_hand.add_child(item_in_hand.quantity_label)
 	
-	itemInHand.inventorySlot.item = slot_item.inventorySlot.item
-	itemInHand.inventorySlot.quantity = half
-	itemInHand.update(itemInHand.inventorySlot)
+	item_in_hand.inventory_slot.item = slot_item.inventory_slot.item
+	item_in_hand.inventory_slot.quantity = half
+	item_in_hand.update(item_in_hand.inventory_slot)
 
-	add_child(itemInHand)
+	add_child(item_in_hand)
 	
 	update_item_in_hand()
 	
