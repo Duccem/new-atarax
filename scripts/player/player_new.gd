@@ -29,7 +29,7 @@ func player_animation(movement):
 		animation_player.play("idle")
 
 func player_movement():
-	input_movement = Input.get_vector("Left", "Right", "Up", "Down")
+	input_movement = Input.get_vector("left", "right", "up", "down")
 	if input_movement != Vector2.ZERO:
 		$Sprite2D.flip_h = input_movement.x < 0
 		velocity = input_movement * SPEED
