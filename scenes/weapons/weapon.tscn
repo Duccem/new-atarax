@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bp7tf0wluygrc"]
+
+[node name="Weapon" type="Node2D"]
+
+[node name="animations" type="AnimationPlayer" parent="."]
+
+[node name="icon" type="Sprite2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="icon"]
+
+[node name="collider" type="CollisionShape2D" parent="icon/hitbox"]

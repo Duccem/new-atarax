@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dwyiiepll76ab" path="res://inventory/player_inventory.tres" id="3_daw4q"]
 [ext_resource type="PackedScene" uid="uid://1yxdtuwulnwi" path="res://scenes/gui/gui.tscn" id="3_i5r5l"]
 [ext_resource type="Script" path="res://scripts/gui/gui.gd" id="4_j2o8c"]
-[ext_resource type="PackedScene" uid="uid://cqajcooci127m" path="res://scenes/characters/soldier.tscn" id="5_1bhxd"]
+[ext_resource type="PackedScene" uid="uid://cqajcooci127m" path="res://scenes/characters/soldier/soldier_ character.tscn" id="5_1bhxd"]
 [ext_resource type="Texture2D" uid="uid://daw8kusy7saqc" path="res://assets/tilesets/grass.png" id="6_5leto"]
 [ext_resource type="Texture2D" uid="uid://cw1sun2j5p3e3" path="res://assets/tilesets/plains.png" id="7_y4uem"]
 [ext_resource type="Texture2D" uid="uid://ctutgvuwgax7s" path="res://assets/tilesets/water-sheet.png" id="8_vpfj8"]

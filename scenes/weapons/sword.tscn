@@ -1,0 +1,191 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci5i3vu6awvmn"]
+
+[ext_resource type="Texture2D" uid="uid://d2qixesw8q2lp" path="res://assets/weapons/Metal-sword.png" id="1_47j4l"]
+[ext_resource type="Script" path="res://scripts/weapons/sword.gd" id="1_vgrll"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_hitbox.gd" id="3_btn36"]
+[ext_resource type="Texture2D" uid="uid://d4ao45sm508qw" path="res://assets/weapons/Soldier-Attack01_Effect.png" id="4_bblvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s11l"]
+size = Vector2(4.08822, 13.5896)
+
+[sub_resource type="Animation" id="Animation_33xio"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d347x"]
+resource_name = "move_1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(7, 0), Vector2(0, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.785398, 0.785398, 3.14159]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_state"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.12, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayu8k"]
+_data = {
+"RESET": SubResource("Animation_33xio"),
+"move_1": SubResource("Animation_d347x")
+}
+
+[node name="Sword" type="Node2D"]
+visible = false
+script = ExtResource("1_vgrll")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+texture = ExtResource("1_47j4l")
+offset = Vector2(6.61981, -6.65123)
+
+[node name="hitbox" type="Area2D" parent="Sprite2D"]
+position = Vector2(8, -8)
+rotation = 0.802944
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_btn36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/hitbox"]
+position = Vector2(-0.0144138, -2.90422)
+shape = SubResource("RectangleShape2D_0s11l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ayu8k")
+}
+autoplay = "RESET"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(21, -3)
+texture = ExtResource("4_bblvy")
+hframes = 11
+frame = 6

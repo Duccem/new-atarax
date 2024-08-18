@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cstvnblkhrobo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hubld"]
+size = Vector2(21, 20)
+
+[node name="medium_attack" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_hubld")
+debug_color = Color(0.830986, 0.313482, 0.609053, 0.42)

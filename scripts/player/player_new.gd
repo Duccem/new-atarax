@@ -36,7 +36,7 @@ func player_movement():
 	else:
 		velocity = Vector2.ZERO 
 	player_animation(input_movement)
-	player_attack()
+	#player_attack()
 	move_and_slide()
 
 func player_attack():

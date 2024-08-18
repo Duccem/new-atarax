@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqajcooci127m"]
+[gd_scene load_steps=18 format=3 uid="uid://cqajcooci127m"]
 
 [ext_resource type="Texture2D" uid="uid://bq6rox6xglp6" path="res://assets/characters/Soldier.png" id="1_c7nrj"]
 [ext_resource type="Script" path="res://scripts/player/player_new.gd" id="1_ikw4v"]
 [ext_resource type="Script" path="res://scripts/player/implementations/soldier_attack.gd" id="3_4vmva"]
+[ext_resource type="PackedScene" uid="uid://ci5i3vu6awvmn" path="res://scenes/weapons/sword.tscn" id="4_rlmmc"]
 
 [sub_resource type="Animation" id="Animation_8uia6"]
 length = 0.001
@@ -252,7 +253,7 @@ height = 20.0
 [node name="Soldier" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 3
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_ikw4v")
 
 [node name="animation_movment_player" type="AnimationPlayer" parent="."]
@@ -266,19 +267,13 @@ texture = ExtResource("1_c7nrj")
 hframes = 9
 vframes = 7
 
-[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_left = -18.0
-offset_top = -12.0
-offset_right = 22.0
-offset_bottom = 28.0
-color = Color(1, 0, 0, 0)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_37phq")
 
 [node name="Attacks" type="Node2D" parent="."]
+visible = false
 script = ExtResource("3_4vmva")
 
 [node name="basic_attack" type="Area2D" parent="Attacks"]
@@ -312,6 +307,9 @@ debug_color = Color(0.846756, 0.270219, 0.663805, 0.42)
 [node name="health_reg_timer" type="Timer" parent="."]
 wait_time = 2.5
 autostart = true
+
+[node name="Sword" parent="." instance=ExtResource("4_rlmmc")]
+visible = false
 
 [connection signal="body_entered" from="Attacks/basic_attack" to="Attacks" method="_on_basic_attack_body_entered"]
 [connection signal="body_entered" from="Attacks/medium_attack" to="Attacks" method="_on_medium_attack_body_entered"]
