@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bq6rox6xglp6" path="res://assets/characters/Soldier.png" id="1_c7nrj"]
 [ext_resource type="Script" path="res://scripts/player/player_new.gd" id="1_ikw4v"]
 [ext_resource type="Script" path="res://scripts/player/implementations/soldier_attack.gd" id="3_4vmva"]
-[ext_resource type="PackedScene" uid="uid://ci5i3vu6awvmn" path="res://scenes/weapons/sword.tscn" id="4_rlmmc"]
+[ext_resource type="PackedScene" uid="uid://cytqxkpk1tyae" path="res://scenes/weapons/sword.tscn" id="4_rlmmc"]
 
 [sub_resource type="Animation" id="Animation_8uia6"]
 length = 0.001
@@ -309,7 +309,6 @@ wait_time = 2.5
 autostart = true
 
 [node name="Sword" parent="." instance=ExtResource("4_rlmmc")]
-visible = false
 
 [connection signal="body_entered" from="Attacks/basic_attack" to="Attacks" method="_on_basic_attack_body_entered"]
 [connection signal="body_entered" from="Attacks/medium_attack" to="Attacks" method="_on_medium_attack_body_entered"]

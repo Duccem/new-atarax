@@ -30,11 +30,12 @@ func player_animation(movement):
 
 func player_movement():
 	input_movement = Input.get_vector("left", "right", "up", "down")
+	var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	if input_movement != Vector2.ZERO:
-		$Sprite2D.flip_h = input_movement.x < 0
 		velocity = input_movement * SPEED
 	else:
 		velocity = Vector2.ZERO 
+	$Sprite2D.flip_h = input_movement.x < 0 or mouse_direction.x < 0
 	player_animation(input_movement)
 	#player_attack()
 	move_and_slide()

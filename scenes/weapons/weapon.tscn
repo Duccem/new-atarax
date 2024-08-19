@@ -1,11 +1,22 @@
-[gd_scene format=3 uid="uid://bp7tf0wluygrc"]
+[gd_scene load_steps=4 format=3 uid="uid://bp7tf0wluygrc"]
+
+[ext_resource type="Script" path="res://scripts/weapons/weapon.gd" id="1_50eui"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_hitbox.gd" id="2_8v8go"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r885c"]
+resource_local_to_scene = true
 
 [node name="Weapon" type="Node2D"]
+script = ExtResource("1_50eui")
 
 [node name="animations" type="AnimationPlayer" parent="."]
 
 [node name="icon" type="Sprite2D" parent="."]
 
 [node name="hitbox" type="Area2D" parent="icon"]
+script = ExtResource("2_8v8go")
 
 [node name="collider" type="CollisionShape2D" parent="icon/hitbox"]
+shape = SubResource("RectangleShape2D_r885c")
+
+[connection signal="body_entered" from="icon/hitbox" to="icon/hitbox" method="_on_body_entered"]
