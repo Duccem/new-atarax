@@ -10,6 +10,7 @@ var knockbacked = false
 
 @onready var drop = preload("res://scenes/drop.tscn")
 @onready var nav_agent = $Navigation/NavigationAgent2D
+@onready var hitbox = $hitbox
 
 func _ready():
 	$HealthBar.value = health
@@ -47,6 +48,7 @@ func take_damage(damage: int, object_velocity: Vector2):
 	health -= damage
 	update_health_bar()
 	if health <= 0:
+		hitbox.queue_free()
 		$AnimatedSprite2D.play("dead")
 		$HealthBar.visible = false
 		await  get_tree().create_timer(1.5).timeout

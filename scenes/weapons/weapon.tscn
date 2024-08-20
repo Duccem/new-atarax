@@ -7,13 +7,16 @@
 resource_local_to_scene = true
 
 [node name="Weapon" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_50eui")
 
 [node name="animations" type="AnimationPlayer" parent="."]
 
 [node name="icon" type="Sprite2D" parent="."]
+y_sort_enabled = true
 
 [node name="hitbox" type="Area2D" parent="icon"]
+y_sort_enabled = true
 script = ExtResource("2_8v8go")
 
 [node name="collider" type="CollisionShape2D" parent="icon/hitbox"]

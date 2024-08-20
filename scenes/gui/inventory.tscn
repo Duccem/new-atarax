@@ -11,25 +11,18 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -629.0
+offset_right = -903.0
 offset_bottom = -311.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1ip3")
 
-[node name="backgorund" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -715.0
-offset_top = -349.0
-offset_right = 557.0
-offset_bottom = 379.0
-
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(245, 328)
 layout_mode = 0
-offset_left = 7.0
+offset_left = 2.0
 offset_top = 4.0
-offset_right = 252.0
+offset_right = 247.0
 offset_bottom = 332.0
 texture = ExtResource("1_ot0y7")
 patch_margin_left = 6
@@ -136,95 +129,3 @@ theme_override_font_sizes/font_size = 32
 text = "Back pack"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 255.0
-offset_top = 4.0
-offset_right = 520.0
-offset_bottom = 332.0
-texture = ExtResource("1_ot0y7")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect2"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -106.0
-offset_top = 10.0
-offset_right = 106.0
-offset_bottom = 62.0
-grow_horizontal = 2
-texture = ExtResource("4_t6io7")
-region_rect = Rect2(0.244194, 0.135284, 63.9167, 9.7294)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="Label" type="Label" parent="NinePatchRect2/NinePatchRect"]
-layout_mode = 0
-offset_right = 209.0
-offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("5_0a1s1")
-theme_override_font_sizes/font_size = 32
-text = "Character"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect2"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -67.5
-offset_top = -105.0
-offset_right = 72.5
-offset_bottom = -65.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/h_separation = 10
-columns = 3
-
-[node name="Control4" parent="NinePatchRect2/GridContainer" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control5" parent="NinePatchRect2/GridContainer" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control6" parent="NinePatchRect2/GridContainer" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="GridContainer2" type="GridContainer" parent="NinePatchRect2"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -118.5
-offset_top = 95.0
-offset_right = 121.5
-offset_bottom = 135.0
-grow_horizontal = 2
-theme_override_constants/h_separation = 10
-columns = 5
-
-[node name="Control" parent="NinePatchRect2/GridContainer2" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control2" parent="NinePatchRect2/GridContainer2" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control4" parent="NinePatchRect2/GridContainer2" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control6" parent="NinePatchRect2/GridContainer2" instance=ExtResource("2_i01vy")]
-layout_mode = 2
-
-[node name="Control5" parent="NinePatchRect2/GridContainer2" instance=ExtResource("2_i01vy")]
-layout_mode = 2
