@@ -1,3 +1,4 @@
+@icon("res://assets/icons/icon_sword.png")
 extends Node2D
 class_name Weapon
 

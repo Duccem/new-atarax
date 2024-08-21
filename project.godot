@@ -23,6 +23,7 @@ GameManager="*res://scripts/game_manager.gd"
 
 window/size/mode=2
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/gui/01.png"
 
 [input]
 
