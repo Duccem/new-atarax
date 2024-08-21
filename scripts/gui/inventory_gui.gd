@@ -11,6 +11,8 @@ var item_in_hand: ItemStackGui
 var old_item_index = -1
 var locked = false
 
+signal toggled
+
 func update():
 	for i in range(min(inventory.slots.size(), slots.size())):
 		var inventory_slot: InventorySlot = inventory.slots[i]
@@ -40,10 +42,7 @@ func _input(_event):
 func toggle_inventory():
 	is_open = !is_open
 	visible = is_open
-	if is_open:
-		GameManager.pause_game()
-	else:
-		GameManager.resume_game()
+	toggled.emit(is_open)
 
 
 func on_slot_selected(slot):
