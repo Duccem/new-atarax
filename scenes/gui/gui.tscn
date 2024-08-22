@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/gui/gui.gd" id="1_7fqnj"]
 [ext_resource type="PackedScene" uid="uid://32u56bust6eo" path="res://scenes/gui/health_bar.tscn" id="1_gew2a"]
-[ext_resource type="PackedScene" uid="uid://bqkvockfud15p" path="res://scenes/gui/hotbar.tscn" id="2_s7km5"]
-[ext_resource type="PackedScene" uid="uid://ma15i6f6e60c" path="res://scenes/gui/inventory.tscn" id="2_vko7u"]
-[ext_resource type="PackedScene" uid="uid://dgmpsdq7wiere" path="res://scenes/gui/equipment.tscn" id="4_wvt77"]
+[ext_resource type="PackedScene" uid="uid://bqkvockfud15p" path="res://scenes/gui/hotbar/hotbar.tscn" id="2_s7km5"]
+[ext_resource type="PackedScene" uid="uid://ma15i6f6e60c" path="res://scenes/gui/inventory/inventory.tscn" id="2_vko7u"]
+[ext_resource type="PackedScene" uid="uid://dgmpsdq7wiere" path="res://scenes/gui/equipment/equipment.tscn" id="4_wvt77"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_7fqnj")

@@ -3,7 +3,7 @@ class_name InventoryGui extends Control
 var is_open = false
 
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
-@onready var ItemStackGuiClass = preload("res://scenes/gui/item_stack_gui.tscn")
+@onready var ItemStackGuiClass = preload("res://scenes/gui/inventory/item_stack_gui.tscn")
 @onready var hotbar_slots: Array = $NinePatchRect/HBoxContainer.get_children()
 @onready var slots: Array = hotbar_slots + $NinePatchRect/GridContainer.get_children()
 
@@ -160,6 +160,24 @@ func take_the_half(slot):
 	
 	update_item_in_hand()
 	
+func add_item_in_hand(slot):
+	item_in_hand = ItemStackGuiClass.instantiate()
+	item_in_hand.inventory_slot = InventorySlot.new()
+
+	for i in item_in_hand.get_children():
+		item_in_hand.remove_child(i)
+		i.queue_free()
+
+	item_in_hand.item_sprite = slot.item_sprite.duplicate()
+	var slots_with_stack = slots.filter(func(s): return s.item_stack != null)
+	item_in_hand.quantity_label = slots_with_stack[0].item_stack.quantity_label.duplicate()
+	item_in_hand.add_child(item_in_hand.item_sprite)
+	item_in_hand.add_child(item_in_hand.quantity_label)
+	item_in_hand.inventory_slot.item = slot.inventory_slot.item
+	item_in_hand.inventory_slot.quantity = 1
+	item_in_hand.update(item_in_hand.inventory_slot)
+	add_child(item_in_hand)
+	update_item_in_hand()
 
 func connect_slots(): 
 	for i in range(slots.size()):

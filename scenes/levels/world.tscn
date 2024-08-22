@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cw1ov56vcxunu"]
+[gd_scene load_steps=32 format=3 uid="uid://cw1ov56vcxunu"]
 
 [ext_resource type="PackedScene" uid="uid://dn453naarpioy" path="res://scenes/enemy.tscn" id="1_2y1hg"]
 [ext_resource type="PackedScene" uid="uid://ucxnpmp3a4od" path="res://scenes/camera.tscn" id="2_63ms5"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dffic136jcsgn" path="res://assets/objects/rock_in_water.png" id="13_6qdxr"]
 [ext_resource type="Texture2D" uid="uid://dpppgfduflq7v" path="res://assets/objects/objects.png" id="14_r3jko"]
 [ext_resource type="Texture2D" uid="uid://c7qx15kflvypt" path="res://assets/objects/chest_02.png" id="15_c23op"]
-[ext_resource type="Script" path="res://scripts/map.gd" id="16_fnx7j"]
 [ext_resource type="PackedScene" uid="uid://cgljlf3euc8le" path="res://scenes/life_potion.tscn" id="16_umkvb"]
 [ext_resource type="PackedScene" uid="uid://bmdnj15uthv6l" path="res://scenes/collectables/coin.tscn" id="18_xxx3s"]
 
@@ -970,4 +969,3 @@ layer_5/name = "potions"
 layer_5/y_sort_enabled = true
 layer_5/z_index = 1
 layer_5/tile_data = PackedInt32Array(131081, 9, 65536, 524307, 9, 65536, 393234, 9, 196608, 262163, 9, 196608)
-script = ExtResource("16_fnx7j")

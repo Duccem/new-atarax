@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://couwn1r0q0o30"]
+
+[ext_resource type="Script" path="res://scripts/gui/equipment/item_equip_gui.gd" id="1_oec54"]
+
+[node name="ItemEquip" type="Panel"]
+script = ExtResource("1_oec54")
+
+[node name="item" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)

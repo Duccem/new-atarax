@@ -11,6 +11,7 @@ var player_attacking = false
 var player_knockbacked = false
 
 @export var inventory: Inventory
+@export var equipment: Equipment
 
 func state_reset():
 	player_attacking = false

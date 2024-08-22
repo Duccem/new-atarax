@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=9 format=3 uid="uid://bkbirao20jivk"]
+
+[ext_resource type="Script" path="res://scripts/equipment/equipment.gd" id="1_1vdxl"]
+[ext_resource type="Resource" uid="uid://bu1jehuh7dvei" path="res://inventory/items/sword.tres" id="1_whpax"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_4t5au"]
+
+[sub_resource type="Resource" id="Resource_i36jg"]
+script = ExtResource("2_4t5au")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_bi10l"]
+script = ExtResource("2_4t5au")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_2d302"]
+script = ExtResource("2_4t5au")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_lth7x"]
+script = ExtResource("2_4t5au")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_ix53n"]
+script = ExtResource("2_4t5au")
+item = ExtResource("1_whpax")
+quantity = 0
+
+[resource]
+script = ExtResource("1_1vdxl")
+head = SubResource("Resource_bi10l")
+chest = SubResource("Resource_i36jg")
+legs = SubResource("Resource_lth7x")
+right_arm = SubResource("Resource_ix53n")
+left_arm = SubResource("Resource_2d302")

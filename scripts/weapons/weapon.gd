@@ -5,8 +5,6 @@ class_name Weapon
 @onready var animation_player = $animations
 @onready var hitbox = $icon/hitbox
 
-@export var item_resource: InventoryItem
-
 
 func _physics_process(_delta):
 	var mouse_direction = (get_global_mouse_position() - global_position).normalized()

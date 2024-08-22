@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm8k5h2v7w0dm"]
+[gd_scene load_steps=3 format=3 uid="uid://dlycu1405yaha"]
 
-[ext_resource type="Script" path="res://scripts/gui/slot_gui.gd" id="1_0ia5s"]
-[ext_resource type="Texture2D" uid="uid://ijw5m8874yhr" path="res://assets/gui/inventorySlot.png" id="1_74k8b"]
+[ext_resource type="Script" path="res://scripts/gui/equipment/equipment_slot_gui.gd" id="1_ebvan"]
+[ext_resource type="Texture2D" uid="uid://ijw5m8874yhr" path="res://assets/gui/inventorySlot.png" id="2_8cc5q"]
 
 [node name="Slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -13,11 +13,12 @@ offset_right = -1112.0
 offset_bottom = -608.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0ia5s")
+script = ExtResource("1_ebvan")
+slot_type = null
 
 [node name="background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_74k8b")
+texture = ExtResource("2_8cc5q")
 centered = false
 vframes = 2
 
