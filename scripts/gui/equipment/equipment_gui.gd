@@ -61,6 +61,8 @@ func insert_item_in_slot(slot):
 	inventory_ui.remove_child(inventory_ui.item_in_hand)
 	inventory_ui.item_in_hand = null
 	inventory_ui.update_item_in_hand()
+	if item_gui.inventory_slot.item is WeaponItem:
+		equipment.instantiate_weapon(item_gui.inventory_slot.item.weapon)
 
 func take_item_from_slot(slot):
 	var item_gui = slot.take_item()

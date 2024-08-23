@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bu1jehuh7dvei"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://8icywa3w8g83"]
 
-[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_dguyh"]
-[ext_resource type="Texture2D" uid="uid://d2qixesw8q2lp" path="res://assets/weapons/Metal-sword.png" id="2_jbaaq"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_item.gd" id="1_rshis"]
+[ext_resource type="Texture2D" uid="uid://dxfmujxx22r76" path="res://assets/weapons/002.png" id="2_ms2nx"]
+[ext_resource type="PackedScene" uid="uid://c4str14ejash0" path="res://scenes/weapons/sword.tscn" id="3_b1spl"]
 
 [resource]
-script = ExtResource("1_dguyh")
+script = ExtResource("1_rshis")
+damage = 20
+attack_speed = 2.0
+is_double_handed = true
+weapon = ExtResource("3_b1spl")
 name = "Sword"
-texture = ExtResource("2_jbaaq")
+texture = ExtResource("2_ms2nx")
 max_quantity = 1
 stackable = false

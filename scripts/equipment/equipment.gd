@@ -15,6 +15,7 @@ var slots = {
 }
 
 signal updated
+signal weapon_inserted
 
 func insert_slot(slot_type: EquipmentSlot.EquipmentSlotType, slot: InventorySlot):
   match slot_type:
@@ -58,3 +59,6 @@ func remove_slot(slot_type: EquipmentSlot.EquipmentSlotType):
     EquipmentSlot.EquipmentSlotType.LEFT_ARM:
       left_arm = InventorySlot.new()
   updated.emit()
+
+func instantiate_weapon(_weapon: PackedScene):
+  weapon_inserted.emit(_weapon)

@@ -13,6 +13,9 @@ var player_knockbacked = false
 @export var inventory: Inventory
 @export var equipment: Equipment
 
+func _ready():
+	equipment.weapon_inserted.connect(add_weapon)
+
 func state_reset():
 	player_attacking = false
 	$Attacks.reset_state()
@@ -83,3 +86,7 @@ func _on_health_reg_timer_timeout():
 			GameManager.player_health = 100
 		GameManager.player_health_changed.emit()
 		print(GameManager.player_health)
+
+func add_weapon(weapon: PackedScene):
+	var weapon_instance = weapon.instantiate()
+	add_child(weapon_instance)

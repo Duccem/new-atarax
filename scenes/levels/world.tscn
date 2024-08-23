@@ -1,8 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://cw1ov56vcxunu"]
+[gd_scene load_steps=31 format=3 uid="uid://cw1ov56vcxunu"]
 
 [ext_resource type="PackedScene" uid="uid://dn453naarpioy" path="res://scenes/enemy.tscn" id="1_2y1hg"]
 [ext_resource type="PackedScene" uid="uid://ucxnpmp3a4od" path="res://scenes/camera.tscn" id="2_63ms5"]
-[ext_resource type="Resource" uid="uid://dwyiiepll76ab" path="res://inventory/player_inventory.tres" id="3_daw4q"]
 [ext_resource type="PackedScene" uid="uid://1yxdtuwulnwi" path="res://scenes/gui/gui.tscn" id="3_i5r5l"]
 [ext_resource type="PackedScene" uid="uid://cqajcooci127m" path="res://scenes/characters/soldier/soldier_ character.tscn" id="5_1bhxd"]
 [ext_resource type="Texture2D" uid="uid://daw8kusy7saqc" path="res://assets/tilesets/grass.png" id="6_5leto"]
@@ -924,7 +923,6 @@ position = Vector2(224, 70)
 
 [node name="player" parent="." instance=ExtResource("5_1bhxd")]
 position = Vector2(38, 79)
-inventory = ExtResource("3_daw4q")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("player", "map") instance=ExtResource("2_63ms5")]
 player = NodePath("../player")

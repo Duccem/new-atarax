@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=3 format=3 uid="uid://tw1utwg84mj8"]
+
+[ext_resource type="Script" path="res://scripts/weapons/weapon_item.gd" id="1_25pc0"]
+[ext_resource type="Texture2D" uid="uid://dqwgxs2li3c0u" path="res://assets/weapons/063.png" id="2_ama3q"]
+
+[resource]
+script = ExtResource("1_25pc0")
+damage = 30
+attack_speed = 4.0
+is_double_handed = true
+name = "Hammer"
+texture = ExtResource("2_ama3q")
+max_quantity = 1
+stackable = false
